@@ -2,7 +2,7 @@
 * First name: Lyubov
 * Github username: lfridman2016
 
-* Instructions:
+* Instructions: This is the first git commit for the class.
 
 Fill out the top of this form, commit and push it back to GitHub.
 
