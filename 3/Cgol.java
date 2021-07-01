@@ -53,6 +53,7 @@ public class Cgol
 	//This method checks to make sure row r and column c is not off the end of the board, and then checks if there is a living cell present.
   public static int livingCell(char [][]board, int r, int c)
   {
+	  //if the row/col is off the edge of the board, return 0 - not a living cell
 	  if( r < 0 || c < 0 )
 		  return 0;
 	  if(r > board.length - 1 || c > board[r].length - 1)
