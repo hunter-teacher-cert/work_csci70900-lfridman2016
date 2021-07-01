@@ -1,3 +1,4 @@
+/** Mamudou, Mr. H, Lyuba */
 import java.io.*;
 import java.util.*;
 
@@ -19,25 +20,66 @@ public class Cgol
 
   //initialize empty board (all cells dead)
   public static char[][] createNewBoard(int rows, int cols) {
-
+	char [][]board = new char[rows][cols];
+	for(int i = 0; i < rows; i++)
+	{
+		for(int j = 0; j < cols; j++)
+		{
+			board[i][j] = ' ';
+		}
+	}
+	return board;
   }
 
 
   //print the board to the terminal
   public static void printBoard(char[][] board) {
-
+	for(int i = 0; i < board.length; i++)
+	{
+		for(int j = 0; j < board[i].length; j++)
+		{
+			System.out.println(board[i][j] + " ");
+		}
+		System.out.println();
+	}
   }
 
 
   //set cell (r,c) to val
   public static void setCell(char[][] board, int r, int c, char val){
-
+	board[r][c] = val;
   }
 
+	//helper method
+  public static int neighbor(char [][]board, int r, int c)
+  {
+	  if( r < 0 || c < 0 )
+		  return 0;
+	  if(r > board.length - 1 || c > board[r].length - 1)
+		  return 0;
+	  if(board[r][c] == 'X')
+	  {
+		  return 1;
+	  }
+	  else return 0;
+  }
 
   //return number of living neigbours of board[r][c]
   public static int countNeighbours(char[][] board, int r, int c) {
-
+	int neighbors = 0;
+	//check above
+	neighbors += neighbor(board, r - 1, c - 1);
+	neighbors += neighbor(board, r - 1, c);
+	neighbors += neighbor(board, r - 1, c + 1);
+	//check below
+	neighbors += neighbor(board, r + 1, c - 1);
+	neighbors += neighbor(board, r + 1, c);
+	neighbors += neighbor(board, r + 1, c + 1);
+	
+	//check adjacent
+	neighbors += neighbor(board, r, c - 1);
+	neighbors += neighbor(board, r, c + 1);
+	return neighbors;
   }
 
 
@@ -47,19 +89,55 @@ public class Cgol
      (alive 'X', dead ' ')
   */
   public static char getNextGenCell(char[][] board,int r, int c) {
-
+	/*
+	   Survivals:
+	   * A cell with 2 or 3 living neighbours will survive for the next generation.
+	   Death:
+	   * Each cell with >3 neighbours will die from overpopulation.
+	   * Every cell with <2 neighbours will die from isolation.
+	   Birth:
+	   * Each dead cell adjacent to exactly 3 living neighbours is a birth cell. It will come alive next generation.
+	*/
+	int numNeighbors = countNeighbours(board, r, c);
+	if(numNeighbors == 2 && board[r][c] == 'X') //a cell with 2 neighbors that is already alive
+	{
+		return 'X';
+	}
+	else if(numNeighbors > 3)
+	{
+		return ' ';
+	}
+	else if(numNeighbors < 2)
+	{
+		return ' ';
+	}
+	else if( numNeighbors == 3)
+	{
+		return 'X';
+	}
+	else
+	{
+		return ' ';
+	}
   }
 
 
   //generate new board representing next generation
   public static char[][] generateNextBoard(char[][] board) {
-
+	for(int i = 0; i < board.length; i++)
+	{
+		for(int j = 0; j < board[i].length; j++)
+		{
+			board[i][j] = getNextGenCell(board, i, j);
+		}
+	}
+	return board;
   }
 
 
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     char[][] board;
     board = createNewBoard(25,25);
 
@@ -82,6 +160,7 @@ public class Cgol
     System.out.println("Gen X+1:");
     printBoard(board);
     System.out.println("--------------------------\n\n");
+	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
