@@ -50,8 +50,8 @@ public class Cgol
 	board[r][c] = val;
   }
 
-	//helper method
-  public static int neighbor(char [][]board, int r, int c)
+	//This method checks to make sure row r and column c is not off the end of the board, and then checks if there is a living cell present.
+  public static int livingCell(char [][]board, int r, int c)
   {
 	  if( r < 0 || c < 0 )
 		  return 0;
@@ -68,17 +68,17 @@ public class Cgol
   public static int countNeighbours(char[][] board, int r, int c) {
 	int neighbors = 0;
 	//check above
-	neighbors += neighbor(board, r - 1, c - 1);
-	neighbors += neighbor(board, r - 1, c);
-	neighbors += neighbor(board, r - 1, c + 1);
+	neighbors += livingCell(board, r - 1, c - 1);
+	neighbors += livingCell(board, r - 1, c);
+	neighbors += livingCell(board, r - 1, c + 1);
 	//check below
-	neighbors += neighbor(board, r + 1, c - 1);
-	neighbors += neighbor(board, r + 1, c);
-	neighbors += neighbor(board, r + 1, c + 1);
+	neighbors += livingCell(board, r + 1, c - 1);
+	neighbors += livingCell(board, r + 1, c);
+	neighbors += livingCell(board, r + 1, c + 1);
 	
 	//check adjacent
-	neighbors += neighbor(board, r, c - 1);
-	neighbors += neighbor(board, r, c + 1);
+	neighbors += livingCell(board, r, c - 1);
+	neighbors += livingCell(board, r, c + 1);
 	return neighbors;
   }
 
