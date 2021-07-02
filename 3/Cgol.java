@@ -50,7 +50,7 @@ public class Cgol
 	board[r][c] = val;
   }
 
-	//This method checks to make sure row r and column c is not off the end of the board, and then checks if there is a living cell present.
+//This method checks to make sure row r and column c is not off the end of the board, and then checks if there is a living cell present.
   public static int livingCell(char [][]board, int r, int c)
   {
 	  //if the row/col is off the edge of the board, return 0 - not a living cell
@@ -125,14 +125,15 @@ public class Cgol
 
   //generate new board representing next generation
   public static char[][] generateNextBoard(char[][] board) {
+	char[][] newBoard = new char[board.length][board[0].length]; //board.length: rows, board[0].length:columns
 	for(int i = 0; i < board.length; i++)
 	{
 		for(int j = 0; j < board[i].length; j++)
 		{
-			board[i][j] = getNextGenCell(board, i, j);
+			newBoard[i][j] = getNextGenCell(board, i, j);
 		}
 	}
-	return board;
+	return newBoard;
   }
 
 
