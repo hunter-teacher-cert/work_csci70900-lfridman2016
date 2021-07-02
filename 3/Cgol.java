@@ -38,7 +38,7 @@ public class Cgol
 	{
 		for(int j = 0; j < board[i].length; j++)
 		{
-			System.out.println(board[i][j] + " ");
+			System.out.print(board[i][j] + "|");
 		}
 		System.out.println();
 	}
@@ -141,7 +141,8 @@ public class Cgol
   {
     
     char[][] board;
-    board = createNewBoard(25,25);
+    //board = createNewBoard(25,25);
+	board = createNewBoard(5, 5);
 
     //breathe life into some cells:
     setCell(board, 0, 0, 'X');
