@@ -61,50 +61,49 @@ public class SortDemo{
       6 which is the index with the smallest value from start to end
 
     */
+
     public int findSmallestIndex(int start){
-	int smallIndex = start;
+		int smallIndex = start;
 
-	// start a variable at the one after start
-	// your code here
-	for(int i = start; i < data.size(); i++)
-	{
-	// loop from that variable to end and update smallIndex as needed
-
-	//is the current number smaller than the smallest number so far?
-		if( data.get(i) < data.get(smallIndex))
+		// start a variable at the one after start
+		
+		// find the smallet index from i to end
+		for(int i = start; i < data.size(); i++)
 		{
-			//update the smallest index
-			smallIndex =  i;
-		} //end if
-	} //end for
-	// your code here
+		// loop from that variable to end and update smallIndex as needed
 
-	return smallIndex;
+		//is the current number smaller than the smallest number so far?
+			if( data.get(i) < data.get(smallIndex))
+			{
+				//update the smallest index
+				smallIndex =  i;
+			} //end if
+		} //end for
+
+		return smallIndex;
 
     } //end findSmallestIndex
 
 
-    // find the smallet index from i to end
-    // your code here
+
 
     // swap the item at that index and i
-    // your code here
-    //go through the array ArrayList
-    //
     public void swap(int Index1, int Index2){
       int TempValue1 = data.get(Index1);
       data.set(Index1,data.get(Index2));
       data.set(Index2,TempValue1);
     }
+	
+	
     public void sort(){
-	int i;
-	for (i=0;i < data.size()-1; i++){
-    int tempSmallest = findSmallestIndex(i); //utilize previous method to find smallest index and assign it a local variable
-    swap(tempSmallest, i);
+		int i;
+		for (i=0;i < data.size()-1; i++){
+		int tempSmallest = findSmallestIndex(i); //utilize previous method to find smallest index and assign it a local variable
+		swap(tempSmallest, i);
 
 
 
-	}
+		}
     }
 
 
@@ -121,6 +120,18 @@ public class SortDemo{
 
     /* If you finish the lab early you can get started on this */
     public int binarySearch(int value){
+		/*
+		while ( lowIndex < upIndex)
+		{
+		if midElement == input
+			return midElement
+		else
+			if input > midElement
+				lowIndex = midIndex
+			 else if input < midElement
+				upIndex = midIndex
+		}	
+		*/
 	boolean replacethiswithrealexpression=false;
 	int lowerIndex = 0;
 	int upperIndex = data.size();
