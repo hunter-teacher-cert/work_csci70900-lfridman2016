@@ -1,3 +1,4 @@
+Contributors: Marina, Chris, Lyuba
 Arrays Musical Chairs
 Materials: Labels for chairs with numbers 0-5 one set of labels for each group. Labels for "temp" chairs (initially hidden from students).
 
