@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+/*Linear Search, Binary Search contributors Brian, Mamudu, Lyuba*/
 /** Merge sort contributors Chris, Marina, Lyuba */
 /*
 
@@ -111,54 +112,69 @@ public class SortDemo{
     /* If you finish the lab early you can get started on this */
     public int linearSearch(int value){
 	// loop through the ArrayList data
+	for(int i = 0; i < data.size(); i++)
 	// and if the value you're searchign for is in the ArrayList, return it.
-	// return -1 if it isn't there.
+	{
+		if(data.get(i) == value)
+		{
+			return value;
+		}
+	}
+	return -1; // return -1 if it isn't there.
 
-
-	return 0; // replace this return
     }
 
     /* If you finish the lab early you can get started on this */
-    public int binarySearch(int value){
-		/*
-		while ( lowIndex < upIndex)
-		{
-		if midElement == input
-			return midElement
-		else
-			if input > midElement
-				lowIndex = midIndex
-			 else if input < midElement
-				upIndex = midIndex
-		}	
-		*/
-	boolean replacethiswithrealexpression=false;
-	int lowerIndex = 0;
-	int upperIndex = data.size();
-	int middleIndex = data.size()/2;
+  public int binarySearch(int value){
 
-	/* if upper crosses lower it's not there and the lop should exit the loop
-	   and if the item is at middle you should exit the loop
+    int lowerIndex = 0;
+    int upperIndex = data.size();
+    int middleIndex = data.size()/2;
+    boolean lowerLessThanUpper = lowerIndex < upperIndex;
 
-           you have to replace the "replacethiswithrealexpression" boolean
-           with a correct expression based on lowerIndex and upperIndex
-	*/
-	while (replacethiswithrealexpression)
-	    {
-		// update lower and upper.
-		// remember if value is less than data.get(middleIndex) you want to search next time
-		// from lower to the middle and otherwise from the middle to the upper.
-		//
-		// then update middleIndex based on new lowerIndex and upperIndex.
+    // PSEUDOCODE
+    // repeat while lowerIndex less than upperIndex
+      // if middleElement == input, return middleElement
+      // else
+        // if input > middleElement, lowerIndex = middleIndex
+        // if input < middle, upperIndex = middleIndex
+    // return -1
 
-	    }
 
-	/* replace this return to either return the value if it was found and -1
-	   if upperIndex and lowerIndex crossed
-	*/
+    /* if upper crosses lower it's not there and the lop should exit the loop
+    and if the item is at middle you should exit the loop
+    you have to replace the "replacethiswithrealexpression" boolean
+    with a correct expression based on lowerIndex and upperIndex
+    */
+    while (lowerLessThanUpper)
+    {
+      // update lower and upper.
+      // remember if value is less than data.get(middleIndex) you want to search next time
+      // from lower to the middle and otherwise from the middle to the upper.
+      //
+      // then update middleIndex based on new lowerIndex and upperIndex.
 
-	return 0; // replace this return
+      // if middleElement == input, return middleElement
+      if(data.get(middleIndex).equals(value)){
+        return data.get(middleIndex);
+      } else {
+        if(value > data.get(middleIndex)){ // if input > middleElement, lowerIndex = middleIndex
+          lowerIndex = middleIndex+1;
+        } else { // if input < middle, upperIndex = middleIndex
+          upperIndex = middleIndex-1;
+        }
+        middleIndex = (upperIndex - lowerIndex)/2; // update middleIndex
+      }
+      lowerLessThanUpper = lowerIndex < upperIndex;
+
     }
+
+    /* replace this return to either return the value if it was found and -1
+    if upperIndex and lowerIndex crossed
+    */
+
+    return -1; // else/default
+  }
 
     /*------------------------- MERGESORT STUFF -----------------*/
 
