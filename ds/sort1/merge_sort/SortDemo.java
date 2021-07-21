@@ -149,11 +149,15 @@ public class SortDemo{
 			  {
 				  result.add(b.get(j));
 				  j++;
+				  //result.addAll(b);
+				  //j = a.size() + b.size();
 			  }
 			  else if(j > b.size() - 1)
 			  {
 				  result.add(a.get(i));
 				  i++;
+				  //result.addAll(a);//
+				  //i = a.size() + b.size();
 			  }
 			  else if (a.get(i) <= b.get(j)){
                 System.out.println("a.get(i) = " + a.get(i));
@@ -175,6 +179,56 @@ public class SortDemo{
 	         return result;
   }//end merge
 
+    public ArrayList<Integer> msort(ArrayList<Integer> list){
+    // base case - if the input ArrayList is smaller than 2 elements
+    if ( list.size() < 2){
+      System.out.println("base case: " + list);
+      return list;
+    }
+  	// split l into left and right halves
+    ArrayList<Integer> left = new ArrayList<Integer>();
+  	ArrayList<Integer> right = new ArrayList<Integer>();
+    int item = 0;
+    int middle = list.size() / 2;
+    for (int i = 0; i < middle; i++){
+      item = list.get(i);
+      left.add(item);
+    }
+    for (int i = middle; i < list.size(); i++){
+      item = list.get(i);
+      right.add(item);
+    }
+  System.out.println("unsorted left list: " + left);
+  System.out.println("unsorted right list: " + right);
+	// sort the left half
+  left = msort(left);
+	// sort the right half
+  right  = msort(right);
+	// merge the two halves that have been sorted
+  list = merge(left, right);
+  System.out.println("sorted left list: " + left);
+  System.out.println("sorted right list: " + right);
+	// return the result
+  System.out.println("merged list: " + list);
+  return list;
+
+    }
+
+    public void msortTest(){
+	data = msort(data);
+    }
+	
+	    //make an unsorted list of random integers 0-99;
+    public ArrayList<Integer> makeRand(int size){
+      ArrayList<Integer> list = new ArrayList<Integer>();
+      int newVal = 0;
+      for (int i = 0; i < size; i++){
+        newVal = r.nextInt(100);
+        list.add(newVal);
+      }
+      return list;
+    }
+	
 //Create a sorted array list of 'size' increasing values,
     private ArrayList<Integer> fillForMerge(int size){
 	ArrayList<Integer> a = new ArrayList<Integer>();
@@ -187,7 +241,7 @@ public class SortDemo{
 
     }
     public void testMerge(){
-
+		/*
     	ArrayList<Integer> a = new ArrayList<Integer>();
     	ArrayList<Integer> b = new ArrayList<Integer>();
     	a = fillForMerge(5);
@@ -196,7 +250,9 @@ public class SortDemo{
     	System.out.println(b);
       ArrayList<Integer> sortedList = merge(a,b);
       System.out.println(sortedList);
-
+	*/
+	data = makeRand(10);
+	msortTest();
 
     }
 
