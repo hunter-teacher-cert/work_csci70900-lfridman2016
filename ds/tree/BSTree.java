@@ -27,6 +27,7 @@ public class BSTree
 		TreeNode current = root;
 		while(current != null)
 		{
+			System.out.println(current.getData());
 			if(current.getData() ==  key)
 			{
 				return current.getData();
@@ -43,6 +44,41 @@ public class BSTree
 		//while loop ended without finding something
 		throw new NullPointerException();
 		
+	}
+	
+	public void insert(int key)
+	{
+		TreeNode n = new TreeNode(key);
+		TreeNode current = root;
+		TreeNode previous = root;
+		//search for leaf to insert the node
+		while(current != null)
+		{
+			int currentData = current.getData();
+			if(currentData == key)
+			{
+				//already exists
+				return;
+			}
+			else if(currentData < key ) //insert key right
+			{
+				previous = current;
+				current = current.getRight();
+			}
+			else //insert key left
+			{
+				previous = current;
+				current = current.getLeft();
+			}
+		}
+		if(previous.getData() < key)
+		{
+			previous.setRight(n);
+		}			
+		else
+		{
+			previous.setLeft(n);
+		}
 	}
 	/*
 	search

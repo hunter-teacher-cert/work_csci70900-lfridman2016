@@ -5,7 +5,8 @@ public class Driver
 		BSTree tree = new BSTree();
 		tree.seed();
 		System.out.println(tree.search(8));
-		System.out.println(tree.search(32));
-		
+		//System.out.println(tree.search(32));
+		tree.insert(18);
+		System.out.println(tree.search(18));		
 	}
 }
