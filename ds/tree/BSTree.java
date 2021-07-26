@@ -46,6 +46,55 @@ public class BSTree
 		
 	}
 	
+	private void traversePre(TreeNode current)
+	{
+		if(current == null)
+			return;
+		System.out.print(current.getData() + " , ");
+		traversePre(current.getLeft());
+		traversePre(current.getRight());
+	}
+	
+	//print out every node
+	public void traversePre()
+	{
+		traversePre(root);
+		System.out.println();
+	}
+	
+	private void traversePost(TreeNode current)
+	{
+		if(current == null)
+			return;
+		traversePost(current.getLeft());
+		traversePost(current.getRight());
+		System.out.print(current.getData() + " , ");
+	}
+	
+	//print out every node
+	public void traversePost()
+	{
+		traversePost(root);
+		System.out.println();
+	}
+	
+	private void traverseIn(TreeNode current)
+	{
+		if(current == null)
+			return;
+		traverseIn(current.getLeft());
+		System.out.print(current.getData() + " , ");
+		traverseIn(current.getRight());
+		
+	}
+	
+	//print out every node
+	public void traverseIn()
+	{
+		traverseIn(root);
+		System.out.println();
+	}
+	
 	public void insert(int key)
 	{
 		TreeNode n = new TreeNode(key);
@@ -79,6 +128,84 @@ public class BSTree
 		{
 			previous.setLeft(n);
 		}
+	}
+	
+	public void delete(int key)
+	{
+		//find the node, keeping track of the parent
+		TreeNode toDelete = root;
+		TreeNode parent = root;
+		boolean leftChild = false;
+		//search for leaf to insert the node
+		while(toDelete != null && toDelete.getData() != key)
+		{
+			int currentData = toDelete.getData();
+			if(currentData < key ) //delete key right
+			{
+				parent = toDelete;
+				toDelete = toDelete.getRight();
+				leftChild = false;
+			}
+			else //delete key left
+			{
+				parent = toDelete;
+				toDelete = toDelete.getLeft();
+				leftChild = true;
+			}
+		}
+		if(toDelete == null) //not found, nothing to do
+			return;
+		//at this point, current points to the node we want to delete, previous points to parent
+		//delete a leaf: point parent to null
+		if(toDelete.getLeft() == null && toDelete.getRight() == null)
+		{
+			if(leftChild)
+			{
+				parent.setLeft(null);
+			}
+			else
+			{
+				parent.setRight(null);
+			}
+			return;
+		}
+		//deleting a node with one child: point parent's left or right node to child
+		if(toDelete.getLeft() != null && toDelete.getRight() == null) //left child is the only child
+		{
+			if(leftChild)
+			{
+				parent.setLeft(toDelete.getLeft());
+			}
+			else
+			{
+				parent.setRight(toDelete.getLeft());
+			}
+			return;				
+		}
+		if(toDelete.getLeft() == null && toDelete.getRight() != null) //right child is the only child
+		{
+			if(leftChild)
+			{
+				parent.setLeft(toDelete.getRight());
+			}
+			else
+			{
+				parent.setRight(toDelete.getRight());
+			}
+			return;				
+		}		
+		//deleting with two children: look for smallest node on the right subtree 
+		//keep going left
+		TreeNode smallest = toDelete.getRight();
+		TreeNode smallestParent = toDelete;
+		while(smallest.getLeft() != null) //until you reach the leftmost leaf
+		{
+			smallestParent = smallest;
+			smallest = smallest.getLeft();
+		}
+		int newData = smallest.getData();
+		delete(smallest.getData());
+		toDelete.setData(newData);
 	}
 	/*
 	search
