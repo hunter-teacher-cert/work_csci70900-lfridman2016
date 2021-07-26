@@ -33,18 +33,20 @@ public class Driver
 		*/
 		tree.insert(4);
 		tree.insert(21);
+		tree.insert(22);
 		tree.traverseIn();
 		/*
 		System.out.println("Deleting node with 2 children 5");
 		tree.delete(5);
 		tree.traverseIn();
-		
+		*/
 		System.out.println("Deleting node with 2 children 20");
 		tree.delete(20);
 		tree.traverseIn();
-		*/
+		/*
 		System.out.println("Deleting node with 2 children 10");
 		tree.delete(10);
 		tree.traverseIn();
+		*/
 	}
 }
