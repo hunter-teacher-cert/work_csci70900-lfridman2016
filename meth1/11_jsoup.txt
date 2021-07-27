@@ -1,3 +1,4 @@
+ Marisa Laks, Michelle Best, Eric Wilson, Lyuba Fridman
  Write a program to extract data from Olympics medal count website.
  https://olympics.com/tokyo-2020/olympic-games/en/results/all-sports/medal-standings.htm
  - Instructions for setup.
