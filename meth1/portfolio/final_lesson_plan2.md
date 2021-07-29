@@ -57,6 +57,7 @@ Your class must have:
 
 Scaffolding:
 Comments as subgoal labels:
+```
 public class YourClassNameHere //class definition
 {
   //instance variables
@@ -97,9 +98,10 @@ class Main {
     
   }
 }
+```
 ---
 Scaffolding for SPED and ELL students as needed - a fully worked example with strategic fill-in-the blanks, provided in the form of a screen shot so that students have to type rather than copy and paste.
-
+```
 public class Ballerina //class definition
 {
   //instance variables
@@ -143,6 +145,7 @@ class Main {
     msFridman.dance();
   }
 }
+```
 ### Closing
 time: 5 mins
 Which object-oriented concept did you find most challenging when working on this project? Why?
