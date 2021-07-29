@@ -37,7 +37,11 @@ public class Markov
 		String[] words = text.split(" ", -1);
 		for(int i = 0; i < words.length - 1; i++)
 		{
-			addChain(words[i], words[i+1]);
+			//removing punctuation source: https://www.delftstack.com/howto/java/how-to-remove-punctuation-from-string-in-java/
+			//String result = str.replaceAll("\\p{Punct}", "");
+			String word = words[i].replaceAll("\\p{Punct}", "");
+			String follows = words[i+1].replaceAll("\\p{Punct}", "");
+			addChain(word, follows);
 		}
 	}
 	
