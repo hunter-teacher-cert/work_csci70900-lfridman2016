@@ -1,4 +1,0 @@
-Assuming I am using NetLogo to teach an introductory course or CSP, I would use Netlogo to introduce the concepts of language syntax and sequencing. I would give them 6-10 commands and have them put them together in the correct order to produce an image I show them. Some challenges could be to produce the image with inverted colors, or some custom element. Then we could define language syntax and generate a list as a whole class of syntax rules we notice just by looking at the given commands. I would then follow this up with exploration and reflection questions: Which models interested you the most? Why?
-I would introduce the language in this way for the following reasons:
-1) Leverage NetLogo's visual aspect to give students a task they can quickly self-assess.
-2) Get students to start looking for patterns when they examine code.
