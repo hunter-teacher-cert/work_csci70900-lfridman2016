@@ -24,10 +24,9 @@ I can call a void method and trace method calls.
 
 ### Warm up
 time: 7 mins
-Students answer in Nearpod, What is an activity you wish someone else would do for you? How would you describe the steps of this activity to the person you are delegating it to?
+Students answer in Nearpod, What is a task you wish someone else would do for you? How would you describe the steps of this task to the person you are delegating it to?
 2 students share out
 Compare the idea of "delegating steps" to methods in Java.
----
 
 ### Lesson Content
 time: 15 minutes
@@ -45,21 +44,12 @@ As a whole class read key definitions and answer a sample of the multiple choice
 Students complete the sections independently but ask peers for help when needed.
 
 
----
-
 ### Lesson Activity
 time: 18 minutes
 We do:
 Complete a stack trace diagram of the following code from CSAwesome:
+```
 public class Song {
-  
-    public void print() {
-        System.out.println("Old MacDonald had a farm");
-        chorus();
-        System.out.print("And on that farm he had a ");
-        animal();
-        chorus();
-    }
     public void chorus()
     {
         System.out.println("E-I-E-I-O");
@@ -70,23 +60,19 @@ public class Song {
     }
     public static void main(String[] args) {
        Song s = new Song();
-       s.print();
+       System.out.println("Old MacDonald had a farm");
+       s.chorus();
+	   System.out.print("And on that farm he had a ");
+	   s.animal();
+	   s.chorus();
     }
 }
-
+```
 You do, working in pairs:
+```
 Complete a stack trace diagram of the following code from CSAwesome 2-3-6:
   public class Song
   {
-    public void print()
-    {
-        System.out.print("I like to ");
-        eat();
-        eat();
-        eat();
-        fruit();
-    }
-
     public void fruit()
     {
         System.out.println("apples and bananas!");
@@ -100,16 +86,18 @@ Complete a stack trace diagram of the following code from CSAwesome 2-3-6:
     public static void main(String[] args)
     {
        Song s = new Song();
-       s.print();
+        System.out.print("I like to ");
+        s.eat();
+        s.eat();
+        s.eat();
+        s.fruit();
     }
 }
+```
 1 pair shares out their diagram.
----
 
 ### Closing
 time: 5 minutes
 Review your notes. Copy and paste into the next Nearpod slide either:
 -one point you think you will have trouble understanding/remembering
 -the most important point you are taking away from this lesson.
-
----
