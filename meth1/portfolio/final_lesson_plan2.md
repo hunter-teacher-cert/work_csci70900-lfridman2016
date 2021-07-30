@@ -10,18 +10,28 @@ SWAT:
 Unplugged activities to make the very abstract concept of object-oriented programming more concrete.
 Subgoal labeling to provide students with a starting point for their project. Additional scaffolding in the form of a fully built example with certain areas hidden for students with disabilities or ELL students if needed.
 
+### New York State Standards for Digital Fluency and Computer Science
+9-12.CT.4
+Implement a program using a
+combination of student-defined and
+third-party functions to organize the
+computation.
+
 ### Aim:
 I can use object-oriented programming to model a real-world concept.
 
 ### Warm up
 time: 5 mins
+
 With no restrictions, what would you want to be when you grow up? Why? Your answer does not have to be "realistic" ie astronaut, movie star, Jedi are all acceptable answers.
 
 ### Lesson Content
 time: 10 mins
+
 Instructor models designing an object to represent a job using a student volunteer's warm up response.
 What attributes does your chosen role have? What information might you know about it?
 What can your role do?
+
 Example:
 A ballerina has a:
 - name
@@ -37,6 +47,7 @@ Students individually list attributes and behaviours for their roles.
 
 ### Lesson Activity
 time: 25 mins
+
 When I Grow Up Project
 1. Define a class that represents an answer to the question "What do you want to be when you grow up?"
 Your answer does not have to be "realistic."
@@ -52,7 +63,9 @@ Your class must have:
 2. In your main method, write code that creates an instance of your object. Call each of your methods.
 
 Scaffolding:
+
 Comments as subgoal labels:
+
 ```
 public class YourClassNameHere //class definition
 {
@@ -95,7 +108,9 @@ class Main {
   }
 }
 ```
+
 Scaffolding for SPED and ELL students as needed - a fully worked example with strategic fill-in-the blanks, provided in the form of a screen shot so that students have to type rather than copy and paste.
+
 ```
 public class Ballerina //class definition
 {
@@ -141,7 +156,9 @@ class Main {
   }
 }
 ```
+
 ### Closing
 time: 5 mins
 
 Which object-oriented concept did you find most challenging when working on this project? Why?
+
