@@ -2,34 +2,23 @@ import java.util.*;
 
 public class Markov
 {
-	private Hashtable<String, Hashtable> chain;
+	private Hashtable<String, ArrayList> chain;
 	
 	public Markov()
 	{
-		chain = new Hashtable<String, Hashtable>();
+		chain = new Hashtable<String, ArrayList>();
 	}
 	
 	public void addChain(String word, String follows)
 	{
-		Hashtable<String, Integer> wordChains = chain.get(word);
+		ArrayList<String> wordChains = chain.get(word);
 		System.out.println("Adding " + word + " " + follows);
 		if(wordChains == null)
 		{
-			wordChains = new Hashtable<String,Integer>();
-			wordChains.put(follows, 1);
-			chain.put(word, wordChains);
+			wordChains = new ArrayList<String>();
 		}
-		else
-		{
-			int newCount = 1;
-
-			if(wordChains.get(follows) != null)
-			{
-				//System.out.println("incrementing word " + word + " Follows " + wordChains.get(follows));
-				newCount = wordChains.get(follows) + 1;
-			}
-			wordChains.put(follows, newCount);
-		}
+		wordChains.add(follows);
+		chain.put(word, wordChains);
 	}
 	
 	public void createChain(String text)
@@ -45,6 +34,33 @@ public class Markov
 		}
 	}
 	
+	public String generate()
+	{
+		String text = "";
+		Set<String> keys = chain.keySet();
+		
+		//choose a random key to start things off
+		Object[] keyArray = keys.toArray();
+		Random rand = new Random();
+		int random = rand.nextInt(keyArray.length);
+		Object key = keyArray[random];
+		
+		String result = (String)key;
+		
+		for(int i = 0; i < 10; i++)
+		{
+			ArrayList<String> wordChain = chain.get(key);
+			System.out.println("key " + key + " chain " + wordChain);
+			
+			random = rand.nextInt(wordChain.size());
+			result += " " + wordChain.get(random);
+			
+			key = wordChain.get(random);
+			
+		}
+		return result;
+		
+	}
 	public String toString()
 	{
 		return chain.toString();

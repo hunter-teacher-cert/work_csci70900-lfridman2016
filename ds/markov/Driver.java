@@ -19,5 +19,6 @@ the Potters away; they didn’t want Dudley mixing with a child like that. ";
 		*/
 		markov.createChain(text);
 		System.out.println(markov);
+		System.out.println(markov.generate());
 	}
 }
