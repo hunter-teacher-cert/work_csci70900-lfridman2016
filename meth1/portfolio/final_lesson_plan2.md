@@ -34,6 +34,7 @@ A ballerina can:
 - dance
 - put on a costume
 - receive flowers
+
 Students individually list attributes and behaviours for their roles.
 ---
 
@@ -146,5 +147,6 @@ class Main {
 ```
 ### Closing
 time: 5 mins
+
 Which object-oriented concept did you find most challenging when working on this project? Why?
 ---
