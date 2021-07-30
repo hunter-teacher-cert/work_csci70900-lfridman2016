@@ -30,12 +30,10 @@ A ballerina has a:
 - company
 - age
 - level
-
 A ballerina can:
 - dance
 - put on a costume
 - receive flowers
-
 Students individually list attributes and behaviours for their roles.
 ---
 
