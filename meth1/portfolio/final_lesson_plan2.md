@@ -17,8 +17,6 @@ I can use object-oriented programming to model a real-world concept.
 time: 5 mins
 With no restrictions, what would you want to be when you grow up? Why? Your answer does not have to be "realistic" ie astronaut, movie star, Jedi are all acceptable answers.
 
----
-
 ### Lesson Content
 time: 10 mins
 Instructor models designing an object to represent a job using a student volunteer's warm up response.
@@ -36,7 +34,6 @@ A ballerina can:
 - receive flowers
 
 Students individually list attributes and behaviours for their roles.
----
 
 ### Lesson Activity
 time: 25 mins
@@ -98,7 +95,6 @@ class Main {
   }
 }
 ```
----
 Scaffolding for SPED and ELL students as needed - a fully worked example with strategic fill-in-the blanks, provided in the form of a screen shot so that students have to type rather than copy and paste.
 ```
 public class Ballerina //class definition
@@ -149,4 +145,3 @@ class Main {
 time: 5 mins
 
 Which object-oriented concept did you find most challenging when working on this project? Why?
----
